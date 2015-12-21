@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        charles {
+            keyAlias 'liyongji'
+            keyPassword 'zxcv199552817'
+            storeFile file('C:/Users/Administrator.USER-20150414GA/liyongjikeystore.jks')
+            storePassword 'zxcv199552817'
+        }
+    }
+    compileSdkVersion 22
+    buildToolsVersion "23.0.1"
+    defaultConfig {
+        applicationId "gdmec07140717.edu.cn.work7"
+        minSdkVersion 22
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.charles
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/BaiduLBS_Android.jar')
+}
